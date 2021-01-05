@@ -3,6 +3,7 @@ import { useState } from "react"
 const Navbar = () => {
 
     const [statusmenu, setStatusmenu] = useState(false)
+    const [statusslidebtn, setStatusslidebtn] = useState(false)
 
     return (
         <>
@@ -28,11 +29,20 @@ const Navbar = () => {
                         </ul>
                     </div>
                 </nav>
+            </div>
+            <div className={`container-trade `}>
+                <div className="toggle-btn">
+                    <div className="box-rotate">
+                        <a onClick={() => setStatusslidebtn(!statusslidebtn)}>
+                            SET INDEX
+                        <i className={`fas fa-caret-right ${statusslidebtn ? "arrow-open" : "arrow-close"}`}></i>
+                        </a>
+                    </div>
+                </div>
+                <div className={`content-trade ${statusslidebtn ? "" : "close"}`}>Content</div>
+            </div>
 
-            </div>
-            <div className="slide-btn" >
-                <a>SET INDEX <i class="fas fa-caret-up"></i></a>
-            </div>
+
         </>
     )
 }
